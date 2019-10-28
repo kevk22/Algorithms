@@ -21,8 +21,7 @@ var solve = function (board) {
         }
     }
 
-    return board;
-}
+};
 
 function dfs(board, i, j) {
     if (i >= 0 && i < board.length && j >= 0 && j < board[i].length && board[i][j] === 'O') {
