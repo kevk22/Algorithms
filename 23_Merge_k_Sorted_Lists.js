@@ -15,7 +15,7 @@ var mergeKLists = function(lists) {
   while (lists.length > 1) {
     let l1 = lists.shift();
     let l2 = lists.shift();
-    let merged = merge(l1, l2)
+    let merged = merge(l1, l2);
     
     lists.push(merged);
   }
@@ -36,7 +36,7 @@ function merge(l1, l2) {
       l2 = l2.next;
     }
     
-    cur = cur.next
+    cur = cur.next;
   }
   
   if (l1 !== null) cur.next = l1;
