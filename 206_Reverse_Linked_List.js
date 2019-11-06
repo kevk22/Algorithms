@@ -9,6 +9,8 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+
+//Driver for recursive implementation
 var reverseList = function (head) {
     return reverseRecursive(head, null);
 };
@@ -16,7 +18,7 @@ var reverseList = function (head) {
 function reverseRecursive(head, prev = null) {
     if (!head) return prev;
 
-    let after = head.next;
+    let after = head.next; 
     head.next = prev;
     return revervseRecursive(after, head);
 }
