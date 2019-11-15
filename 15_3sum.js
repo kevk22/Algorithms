@@ -8,7 +8,8 @@ var threeSum = function (nums) {
     let sorted = nums.sort((a, b) => a - b);
     let res = [];
 
-    for (let i = 0; i < nums.length - 2; i++) {
+    for (let i = 0; i < sorted.length - 2; i++) {
+        if (sorted[i] > 0) break;
         if (i !== 0 && sorted[i] === sorted[i - 1]) continue;
 
         let low = i + 1;
