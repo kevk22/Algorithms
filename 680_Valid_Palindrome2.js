@@ -37,7 +37,7 @@ var validPalindrome = function (s) {
     }
 
     return true;
-}
+};
 
 function subPalCheck(s, p1, p2) {
 
