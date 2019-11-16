@@ -2,6 +2,8 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
+
+// Optimal
 var threeSum = function (nums) {
     if (nums.length <= 2) return [];
 
@@ -12,7 +14,7 @@ var threeSum = function (nums) {
         if (sorted[i] > 0) break;
         if (i !== 0 && sorted[i] === sorted[i - 1]) continue;
 
-        let low = i + 1;
+        let low = i + 1; 
         let high = nums.length - 1;
         let target = (sorted[i] * -1);
 
