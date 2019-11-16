@@ -49,9 +49,7 @@ function compare(arrS, arrP) {
 }
 
 
-
-
-
+// ----------------------------------
 
 // Naive 
 var findAnagrams = function(s, p) {
