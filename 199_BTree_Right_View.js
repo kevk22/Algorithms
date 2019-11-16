@@ -10,6 +10,7 @@
  * @return {number[]}
  */
 
+// Fast
 var rightSideView = function (root) {
     if (!root) return [];
 
