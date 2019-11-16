@@ -2,6 +2,8 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+// O(n)
 var pivotIndex = function(nums) {
   let sum = 0;
   let leftSum = 0;
