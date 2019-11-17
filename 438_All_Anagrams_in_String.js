@@ -23,6 +23,7 @@ var findAnagrams = function (s, p) {
 
     let low = 0;
     let high = p.length;
+    
     while (high < s.length) {
         if (compare(arrS, arrP)) res.push(low);
 
