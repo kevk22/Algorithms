@@ -30,3 +30,18 @@ function inOrder(node, res) {
 
     return res;
 }
+
+
+
+
+// Without sorted array
+var isValidBST = function (root, min = -Infinity, max = Infinity) {
+    if (!root) return true;
+
+    if (root.val <= min || root.val >= max) return false;
+
+    const left = isValidBST(root.left, min, root.val);
+    const right = isValidBST(root.right, root.val, max);
+
+    return (left && right);
+}
