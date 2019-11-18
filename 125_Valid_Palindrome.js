@@ -8,7 +8,6 @@ var isPalindrome = function(s) {
   const alphaNum = '0123456789abcdefghijklmnopqrstuvwxyz';
   let newStr = "";
   
-  
   s.split('').forEach(char => {
     if (alphaNum.indexOf(char) > -1 || alphaNum.indexOf(char.toLowerCase()) > -1) {
       newStr += char.toLowerCase();
@@ -26,7 +25,7 @@ var isPalindrome = function(s) {
 
 // Approach # 2
 var isPalindrome = function (s) {
-   const alph = "0123456789abcdefghijklmnopqrstuvwxyz ";
+    const alph = "0123456789abcdefghijklmnopqrstuvwxyz ";
     let newSen = "";
     
     for (let i = 0; i < s.length; i++) {
