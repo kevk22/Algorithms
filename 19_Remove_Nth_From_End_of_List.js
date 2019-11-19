@@ -30,4 +30,4 @@ var removeNthFromEnd = function (head, n) {
     prev.next = prev.next.next;
 
     return head;
-}
+};
