@@ -28,6 +28,28 @@ var removeNthFromEnd = function (head, n) {
     if (count !== n) return head.next;
 
     prev.next = prev.next.next;
+    return head;
+};
 
+
+// Alternate code
+var removeNthFromEnd = function (head, n) {
+    let count = 1;
+    let tail = head;
+    let prev = head;
+
+    while (count <= n) {
+        tail = tail.next;
+        count++;
+    }
+
+    if (tail === null) return head.next;
+
+    while (tail.next !== null) {
+        prev = prev.next;
+        tail = tail.next;
+    }
+
+    prev.next = prev.next.next;
     return head;
 };
