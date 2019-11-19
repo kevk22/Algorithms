@@ -53,3 +53,7 @@ var removeNthFromEnd = function (head, n) {
     prev.next = prev.next.next;
     return head;
 };
+
+
+
+let key = Object.keys(map).sort((a,b) => map[a] - map[b])
