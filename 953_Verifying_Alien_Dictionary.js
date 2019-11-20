@@ -23,7 +23,6 @@ var isAlienSorted = function (words, order) {
 
 
 //Alternate solution 
-
 var isAlienSorted = function (words, order) {
     if (words.length < 2) return true;
 
