@@ -18,7 +18,7 @@ var rightSideView = function (root) {
     let q = [root];
 
     while (q.length) {
-        let size = q.length
+        let size = q.length;
 
         for (let i = 0; i < size; i++) {
             let cur = q.shift();
@@ -30,7 +30,7 @@ var rightSideView = function (root) {
     }
 
     return res;
-}
+};
 
 
 // Suboptimal
@@ -42,7 +42,6 @@ var rightSideView = function(root) {
 
     while (q.length) {
       let cur = q.shift();
-      console.log(cur)
 
       if (cur === null) {
         if (q[0] === null || !q.length) break;
@@ -69,7 +68,7 @@ var rightSideView = function (root) {
     dfs(root, res, 1, [0]);
 
     return res;
-}
+};
 
 function dfs(node, res, cur, max) {
     if (!node) return;
