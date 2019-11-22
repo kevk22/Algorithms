@@ -61,6 +61,28 @@ var rightSideView = function(root) {
 };
 
 
+// Alternate suboptimal
+var rightSideView = function (root) {
+    if (!root) return [];
+
+    let res = [];
+
+    function inOrder(node, depth) {
+        if (!node) return;
+
+        if (!res[depth]) res.push([]);
+
+        res[depth].push(node.val);
+
+        inOrder(node.left, depth + 1);
+        inOrder(node.right, depth + 1);
+    }
+
+    inOrder(root, 0);
+    return res.map(sub => sub.pop());
+};
+
+
 // Slower DFS
 var rightSideView = function (root) {
     let res = [];
