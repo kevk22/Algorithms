@@ -11,7 +11,7 @@ var transformArray = function(arr) {
         if (prev[i] > prev[i+1] && prev[i] > prev[i-1]) {
           arr[i]--;
         } else if (prev[i] < prev[i+1] && prev[i] < prev[i-1]) {
-          arr[i]++
+          arr[i]++;
         }
       }
       
