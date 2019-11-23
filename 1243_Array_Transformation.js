@@ -7,6 +7,7 @@ var transformArray = function(arr) {
     
     while (true) {
       let prev = arr.slice();
+      
       for (let i = 1; i < arr.length - 1; i++) {
         if (prev[i] > prev[i+1] && prev[i] > prev[i-1]) {
           arr[i]--;
