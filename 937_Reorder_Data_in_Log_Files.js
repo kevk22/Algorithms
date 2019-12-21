@@ -22,7 +22,7 @@ var reorderLogFiles = function(logs) {
         let strA = a.split(' ').slice(1).join(' ');
         let strB = b.split(' ').slice(1).join(' ');
         
-        if (strA === strB) return a.localCompare(b);
+        if (strA === strB) return a.localeCompare(b);
         return strA.localeCompare(strB);
     });
     
