@@ -7,15 +7,11 @@ var reorderLogFiles = function(logs) {
     let digitLogs = [];
     
     // seperate letterlogs and digitlogs
-    for (let i = 0; i < logs.length; i++) {
-        let cur = logs[i].split(' ');
-        
-        if (!isNaN(cur[1])) {
-            digitLogs.push(cur.join(' '));
-        } else {
-            letterLogs.push(cur.join(' '));
-        }
-    }
+    logs.forEach((el) => {
+        let check = el.split(' ')[1];
+
+        isNaN(check) ? letterLogs.push(el) : digitLogs.push(el);
+    });
     
     // sort letterlogs lexicographically
     letterLogs.sort((a, b) => {
