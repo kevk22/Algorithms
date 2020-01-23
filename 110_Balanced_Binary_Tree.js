@@ -24,5 +24,5 @@ var isBalanced = function (root) {
 
     let dif = Math.abs(getHeight(root.left) - getHeight(root.right)) <= 1;
 
-    return dif && isBalanced(root.left) && isBalanced(root.right)
+    return dif && isBalanced(root.left) && isBalanced(root.right);
 };
