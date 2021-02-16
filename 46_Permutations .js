@@ -2,6 +2,8 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
+
+// Time complexity: O(n!), Space complexity: O(n!)
 var permute = function (nums) {
   let res = [];
 
