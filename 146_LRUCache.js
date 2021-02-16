@@ -1,73 +1,94 @@
-class LRUCache{
-  constructor(capacity){
-    this.capacity = capacity;
-    this.nodeMap = {};
-    this.head = new ListNode();
-    this.tail = new ListNode();
-    this.size = 0;  
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function (capacity) {
+  this.head = new Node();
+  this.tail = new Node();
+  this.nodeMap = {};
+  this.capacity = capacity;
+  this.size = 0;
 
-    this.head.next = this.tail;
-    this.tail.prev = this.head;
+  this.head.next = this.tail;
+  this.tail.prev = this.head;
+};
+
+/** 
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function (key) {
+  let node = this.nodeMap[key];
+
+
+  if (node !== undefined) {
+    this.removeNode(node);
+    this.addNode(node);
+    return node.val;
   }
 
-  get(key) {
-    let node = this.nodeMap[key];
+  return -1;
+};
 
-    if (node !== null) {
-      this.removeNode(node);
-      this.addNode(node);
-      return node.val;
+/** 
+ * @param {number} key 
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function (key, value) {
+  let node = this.nodeMap[key];
+
+  if (node !== undefined) {
+    node.val = value;
+    this.removeNode(node);
+    this.addNode(node);
+  } else {
+    if (this.capacity === this.size) {
+
+      this.nodeMap[this.tail.prev.key] = undefined;
+      this.removeNode(this.tail.prev);
     }
 
-    return -1;
+    let newNode = new Node();
+    newNode.val = value;
+    newNode.key = key;
+    this.nodeMap[key] = newNode;
+
+    this.addNode(newNode);
   }
 
-  put(key, value) {
-    let node = this.nodeMap[key];
+};
 
-    if (node !== null) {
-      this.removeNode(node);
-      node.val = value; 
-      this.addNode(node);
-    } else {
-      if (this.size === this.capacity) {
-        this.nodeMap[this.tail.prev.key] = null;
-        this.removeNode(this.tail.prev);
-      }
+LRUCache.prototype.addNode = function (node) {
+  let head_next = this.head.next;
 
-      let newNode = new ListNode(key, value)
-      this.nodeMap[key] = newNode;
-      this.addNode(newNode);
-
-    }
-
-
-  }
-
-  addNode(node) {
-      let headNext = this.head.next;
-
-      node.next = headNext;
-      node.prev = this.head;
-      this.head.next = node;
-      headNext.prev = node;
-  }
-
-  removeNode(node) {
-    let nextNode = node.next;
-    let prevNode = node.prev;
-
-    prevNode.next = nextNode;
-    nextNode.prev = prevNode;
-  }
-
+  node.next = head_next;
+  node.prev = this.head;
+  this.head.next = node;
+  head_next.prev = node;
+  this.size++;
 }
 
-class ListNode{
-  constructor(key, val){
+
+LRUCache.prototype.removeNode = function (node) {
+  let nextNode = node.next;
+  let prevNode = node.prev;
+
+  nextNode.prev = prevNode;
+  prevNode.next = nextNode;
+  this.size--;
+}
+
+/** 
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+class Node {
+  constructor(key, val, next = null, prev = null) {
     this.key = key;
     this.val = val;
-    this.next = null;
-    this.prev = null;
+    this.next = next;
+    this.prev = prev;
   }
 }
